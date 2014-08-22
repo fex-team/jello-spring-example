@@ -11,6 +11,6 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        return "home/page/index.vm";
+        return "index.vm";
     }
 }
