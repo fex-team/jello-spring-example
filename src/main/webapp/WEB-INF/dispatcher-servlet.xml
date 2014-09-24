@@ -31,7 +31,29 @@
         </property>
     </bean>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+    <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".vm"/>
+        <property name="cacheUnresolved" value="false" />
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <property name="attributesMap">
+            <map>
+                <entry key="esc"><bean class="org.apache.velocity.tools.generic.EscapeTool"/></entry>
+                <entry key="render"><bean class="org.apache.velocity.tools.generic.RenderTool" /></entry>
+                <entry key="link"><bean class="org.apache.velocity.tools.generic.LinkTool" /></entry>
+                <!--其他你觉得有用的 velocity tools-->
+            </map>
+        </property>
+        <property name="order" value="0" />
+    </bean>
+
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1" />
     </bean>
 
     <!--初始 fis 配置-->

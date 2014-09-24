@@ -10,7 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping("/")
-    public String index(Model model) {
-        return "index.vm";
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping("/velocity")
+    public String velocity() {
+        return "velocity";
+    }
+
+    @RequestMapping("/jsp")
+    public String jsp() {
+        return "jsp";
     }
 }
